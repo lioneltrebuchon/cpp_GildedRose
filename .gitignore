@@ -1,0 +1,11 @@
+# Ignore binaries hack.
+*
+!*.*
+
+# Don't ignore some files without extensions.
+!README
+!Makefile
+
+# Other outputs and binaries.
+*.o
+*.a
