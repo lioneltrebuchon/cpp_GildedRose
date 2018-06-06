@@ -1,4 +1,5 @@
 #include "GildedRose.h"
+#include <iostream>
 
 GildedRose::GildedRose(vector<Item> & items) : items(items)
 {}
@@ -19,7 +20,7 @@ void GildedRose::updateQuality()
         // Classic items.
         // Quality decreases by 1 as long as due date is in the future (sellIn>=0),
         // and by 2 when due date is in the past (sellIn<0).
-        if (items[i].name != "Aged Brie" && items[i].name != "Backstage passes to a TAFKAL80ETC concert" && items[i].name != "Sulfuras, Hand of Ragnaros")
+        if ( (items[i].name != "Aged Brie") && (items[i].name != "Backstage passes to a TAFKAL80ETC concert") && (items[i].name != "Sulfuras, Hand of Ragnaros") && (items[i].name != "Conjured Mana Cake"))
         {
             if (items[i].quality > 0)
             {
@@ -52,18 +53,32 @@ void GildedRose::updateQuality()
                     items[i].quality = 0;   
                 }
             }
-            else if (items[i].name != "Aged Brie")
+            else if (items[i].name == "Aged Brie")
             {
                 items[i].quality = min(items[i].quality + 1, 50);
             }
-            else if (items[i].name != "Sulfuras, Hand of Ragnaros")
+            else if (items[i].name == "Sulfuras, Hand of Ragnaros")
             {
                 items[i].quality = 80;
                 items[i].sellIn = -1;
             }
+            else if (items[i].name == "Conjured Mana Cake")
+            {
+                if (items[i].quality > 0)
+                {
+                    if (items[i].sellIn < 0)
+                    {
+                        items[i].quality = max(items[i].quality - 4,0);
+                    }
+                    else
+                    {
+                        items[i].quality = max(items[i].quality - 2,0);
+                    }
+                }
+            }
             else
             {
-                cout << items[i].name << "is a special item whose behaviour has not been defined. Abort!"
+                cout << items[i].name << "is a special item whose behaviour has not been defined. Abort!";
             }
         }
 
