@@ -3,6 +3,14 @@
 
 using namespace std;
 
+// TODO
+// class ItemParameters
+// {
+// public:
+//     int maxQuality = 50;
+//     int minQuality = 0;
+// }
+
 class Item
 {
 public:
@@ -13,10 +21,21 @@ public:
     {}
 };
 
+// TODO: legendary items.
+// class LegendaryItem
+// {
+// public:
+//     string name;
+//     int quality;
+//     LegendaryItem(string name, int quality) : name(name), quality(quality) 
+//     {}
+// };
+
 class GildedRose
 {
 public:
     vector<Item> & items;
+    // vector<LegendaryItem> & legendaryItems;
     GildedRose(vector<Item> & items);
     
     void updateQuality();

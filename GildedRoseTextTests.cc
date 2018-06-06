@@ -13,11 +13,16 @@ ostream& operator<<(ostream& s, Item& item)
 int main()
 {
     vector<Item> items;
+    // vector<LegendaryItem> legendaryItems;
+
     items.push_back(Item("+5 Dexterity Vest", 10, 20));
     items.push_back(Item("Aged Brie", 2, 0));
     items.push_back(Item("Elixir of the Mongoose", 5, 7));
+    // TODO: legendary items.
+    // legendaryItems.push_back(LegendaryItem("Sulfuras, Hand of Ragnaros", 0, 80));
+    // legendaryItems.push_back(LegendaryItem("Sulfuras, Hand of Ragnaros", -1, 80));
     items.push_back(Item("Sulfuras, Hand of Ragnaros", 0, 80));
-    items.push_back(Item("Sulfuras, Hand of Ragnaros", -1, 80));
+    items.push_back(Item("Sulfuras, Hand of Ragnaros", -1, 80));    
     items.push_back(Item("Backstage passes to a TAFKAL80ETC concert", 15, 20));
     items.push_back(Item("Backstage passes to a TAFKAL80ETC concert", 10, 49));
     items.push_back(Item("Backstage passes to a TAFKAL80ETC concert", 5, 49));
@@ -35,6 +40,11 @@ int main()
         {
             cout << *i << endl;
         }
+        // TODO: legendary items.
+        // for (vector<LegendaryItem>::iterator i = legendaryItems.begin(); i != legendaryItems.end(); i++)
+        // {
+        //     cout << *i << endl;
+        // }
         cout << endl;
 
         app.updateQuality();
