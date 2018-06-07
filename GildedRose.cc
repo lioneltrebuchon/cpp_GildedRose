@@ -40,11 +40,11 @@ void GildedRose::updateQuality()
         {
             if (items[i].name == "Backstage passes to a TAFKAL80ETC concert")
             {
-                if (items[i].sellIn < 11)
+                if (items[i].sellIn < 11 && items[i].sellIn >= 0)
                 {
                     items[i].quality = min(items[i].quality + 2, 50);
                 }
-                else if (items[i].sellIn < 6)
+                else if (items[i].sellIn < 6 && items[i].sellIn >= 0)
                 {
                     items[i].quality = min(items[i].quality + 3, 50);
                 }
@@ -78,7 +78,7 @@ void GildedRose::updateQuality()
             }
             else
             {
-                cout << items[i].name << "is a special item whose behaviour has not been defined. Abort!";
+                cout << items[i].name << "is a special item whose behaviour has not been defined. Should abort!" << endl;
             }
         }
 
